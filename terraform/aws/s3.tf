@@ -65,6 +65,9 @@ resource "aws_s3_bucket" "financials" {
 
 resource "aws_s3_bucket" "financials_log_bucket" {
   bucket = "financials-log-bucket"
+  tags = {
+    yor_trace = "66105cf7-58d4-4343-a200-13db1cfac13d"
+  }
 }
 
 resource "aws_s3_bucket_logging" "financials" {
@@ -129,7 +132,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "data_science" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "aws:kms"
     }
   }
 }
